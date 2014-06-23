@@ -1,0 +1,157 @@
+\documentclass[mathserif]{beamer}
+% Class options include: notes, handout, trans
+%                        
+
+% Theme for beamer presentation.
+\usepackage{beamerthemelined} 
+% Other themes include: beamerthemebars, beamerthemelined, 
+%                       beamerthemetree, beamerthemeplain
+
+\title{Primfaktorzerlegung und Primzahltests}    % Enter your title between curly braces
+\author{Maximilian Scholz}                 % Enter your name between curly braces
+\institute{Proseminar Mathematik}      % Enter your institute name between curly braces
+\date{\today}                    % Enter the date or \today between curly braces
+
+\setbeamertemplate{footline}[frame number]
+\begin{document}
+
+% Creates title page of slide show using above information
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section[]{}
+
+% Creates table of contents slide incorporating
+% all \section and \subsection commands
+\begin{frame}
+  \frametitle{Inhalt}
+  \tableofcontents
+\end{frame}
+
+\section{Einleitung zu Primzahlen}
+  
+\begin{frame}
+  \frametitle{Primzahlen}
+  \begin{itemize}
+    \item Nat\"urliche Zahlen $> 1$ die nur durch sich selbst und $1$ teilbar sind.
+      \vspace{3mm}
+    \item Es gibt unendlich viele Primzahlen. (Euklid)
+      \vspace{3mm}
+    \item Jede nat\"urliche Zahl l\"asst sich als Produkt von Primzalen darstellen. 
+	  Bis auf die Reihenfolge ist diese Darstellung eindeutig. (Euklid)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Konkruenz modulo p}
+  \begin{itemize}
+	\item<1->$a \equiv b \pmod p \Leftrightarrow p|(a-b)$
+\vspace{3mm}
+	\item<2->$a=p\cdot x +c,\ \ \ b= p\cdot y +c$
+\vspace{3mm}
+	\item<3->$a-b=p(x-y)+(c-c)=p(x-y)$
+\vspace{3mm}
+	\item<4->$p|p(x-y)$
+  \end{itemize}
+\end{frame}
+
+\section{Sieb des Eratosthenes}
+
+\begin{frame}
+  \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
+
+  \begin{itemize}
+  \item<1-> Der kleinste Teiler $> 1$ einer zusammengesetzten Zahl $n$ ist eine Primzahl $p$. 
+  \vspace{3mm}
+  \item<2-> Da $p$ der kleinste Teiler ist, gilt $p \leq \frac{n}{p}$, also $ p^2 \leq n $.
+  \vspace{3mm}
+  \item<3-> Alle zusammengesetzten Zahlen $n<N$ werden also beim Sieben mit einer Siebzahl $q$ mit $q^2<n$ gestrichen.
+  \vspace{3mm}
+  \item<4-> Die \"ubrigen Zahlen sind also Primzahlen.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
+BILD
+
+\end{frame}
+
+\section{Pollard Rho Methode}
+
+\subsection{Hase Igel Algorithmus}
+
+\begin{frame}
+  \frametitle{Hase Igel Algorithmus}
+  \begin{itemize}
+    \item<1-> Sei $M$ eine endliche Menge mit der Abbildung $f : M \rightarrow M$.
+      \vspace{3mm}
+    \item<2-> Man w\"ahle $x_0 \in M$ und erzeuge die Folge $x_0, x_1, x_2,...$ mit $x_{i+1} = f(x_i)$ .
+      \vspace{3mm}
+    \item<3-> $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.
+      \vspace{3mm}
+    \item<4-> Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beweis Teil 1}
+  \begin{itemize}
+    \item<1->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(n)=f^n(x_0)$
+      \vspace{3mm}
+    \item<2-> M ist beschr\"ankt also kann g nicht injektiv sein. Daraus folgt:\\
+	        $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
+ 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beweis Teil 2}
+  \begin{itemize}
+    \item<1-> Angenommen $x_i=x_j$ f\"ur $j>i$.
+     \vspace{3mm}
+    \item<2-> Falls $n\geq i$ und $2n=n+k(j-i)\geq i$ mit $k\geq 0$ muss $x_n=x_2n$ gelten.
+     \vspace{3mm}
+    \item<3-> Man w\"ahle $k\geq 0$ sodass $n=k(j-1)\geq i$ und erh\"alt das gesuchte $n$.
+     \vspace{3mm}
+    \item<4-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Pollard Rho Algorithmus}
+\begin{frame}
+  \frametitle{Pollard Rho Methode}
+  \begin{itemize}
+    \item Sei $N$ eine zusammengesetzte Zahl und $p$ ein Primfaktor von $N$.
+    \item 
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Slide with two columns: items and a graphic}   
+  \begin{columns}[c]
+  \column{2in}  % slides are 3in high by 5in wide
+  \begin{itemize}
+  \item<1-> First item
+  \item<2-> Second item
+  \item<3-> ...
+  \end{itemize}
+  \column{2.5in}
+  \framebox{Insert graphic here % e.g. \includegraphics[height=2.65in]{graphic}
+  }
+  \end{columns}
+\end{frame}
+\note{The end}       % Add notes to yourself that will be displayed when
+		     % typeset with the notes class option
+
+\end{document}

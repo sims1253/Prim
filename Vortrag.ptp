@@ -1,0 +1,15 @@
+# PCTeX Project File, Version 1.1
+	name: Vortrag
+	texformat: latex
+	typesetmode: PDF
+	spellwordlist: american
+Vortrag.tex
+	wndpos: 1 -1 -1 -1 -1 107 -19 1502 938
+	zorder: 0
+	edit: 2141
+Vortrag.log
+Vortrag.aux
+Vortrag.out
+Vortrag.nav
+Vortrag.toc
+Vortrag.pdf
