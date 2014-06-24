@@ -1,4 +1,4 @@
-\documentclass[mathserif]{beamer}
+\documentclass[mathserif, compress]{beamer}
 % Class options include: notes, handout, trans
 %                        
 
@@ -43,19 +43,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Konkruenz modulo p}
-  \begin{itemize}
-	\item<1->$a \equiv b \pmod p \Leftrightarrow p|(a-b)$
-\vspace{3mm}
-	\item<2->$a=p\cdot x +c,\ \ \ b= p\cdot y +c$
-\vspace{3mm}
-	\item<3->$a-b=p(x-y)+(c-c)=p(x-y)$
-\vspace{3mm}
-	\item<4->$p|p(x-y)$
-  \end{itemize}
-\end{frame}
-
 \section{Sieb des Eratosthenes}
 
 \begin{frame}
@@ -75,8 +62,8 @@
 \begin{frame}
   \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
 BILD
-
 \end{frame}
+
 
 \section{Pollard Rho Methode}
 
@@ -101,8 +88,7 @@ BILD
     \item<1->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(n)=f^n(x_0)$
       \vspace{3mm}
     \item<2-> M ist beschr\"ankt also kann g nicht injektiv sein. Daraus folgt:\\
-	        $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
- 
+	      $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
   \end{itemize}
 \end{frame}
 
@@ -120,9 +106,15 @@ BILD
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Konkruenz modulo p}
   \begin{itemize}
-    \item 
+	\item<1->$a \equiv b \pmod p \Leftrightarrow p|(a-b)$
+\vspace{3mm}
+	\item<2->$a=p\cdot x +c,\ \ \ b= p\cdot y +c$
+\vspace{3mm}
+	\item<3->$a-b=p(x-y)+(c-c)=p(x-y)$
+\vspace{3mm}
+	\item<4->$p|p(x-y)$
   \end{itemize}
 \end{frame}
 
@@ -131,27 +123,59 @@ BILD
 \begin{frame}
   \frametitle{Pollard Rho Methode}
   \begin{itemize}
-    \item Sei $N$ eine zusammengesetzte Zahl und $p$ ein Primfaktor von $N$.
+    \item<1-> Sei $N$ eine zusammengesetzte Zahl und \\$p$ ein Primfaktor von $N$.
+      \vspace{3mm}
+    \item<2-> Gesucht sind $0\leq a,b<N$ sodass $a \equiv b \pmod p$. \\Dann gilt $p|a-b$
+      \vspace{3mm}
+    \item<3-> Daraus folgt $1<ggT(a-b,N)\leq N$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,N)$ ein nichttrivialer Faktor von N.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pollard Rho Algorithmus}
+  \begin{itemize}
+    \item<1-> Sei $f(x)$ eine ganzzahlige Polynomfunktion und $S \in \mathbb{Z}$.
+     \vspace{3mm}
+    \item<2-> Man erzeuge eine Folge von Pseudozufallszahlen mit:\\ $x_0= S, \ x_{i+1}=f(x_i)\mod N$.
+    \vspace{3mm}
+    \item<3-> Wird schlieﬂlich periodisch, da beschr\"ankt.
+    \vspace{3mm}
+    \item<4-> Anstatt $x_k=^?y_k$ suchen wir nach $ggT(x_k - y_k)>^? 1$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pollard Rho Beispiel}
+Gesucht: Primfaktorzerlegung von N=143\\
+\ \\
+Parameter: $x_0 = y_0 = 0, \ f(x)=(x^2+1)\mod N$
+	$$
+  \begin{array}{c|c|c|c}
+	k & x_k = f(x_{k-1}) & y_k = f(f(y_{k-1})) & ggT(x_k - y_k, N) \\ \hline 
+        0 & 0 & 0 & 0 \\ \hline
+	1 & 1 & 2 & 1 \\ \hline
+	2 & 2 & 26 & 1 \\ \hline
+	3 & 5 & 15 & 1 \\ \hline
+	4 & 26 & 26 & 0 \\ \hline
+	5 & 105 & 15 & 1 \\ \hline
+	6 & 15 & 26 & 11 \\ \hline
+  \end{array}
+	$$
+\end{frame}
+
+\subsection{Komplexit‰t}
+\begin{frame}
+  \frametitle{Gebutstagsproblem}
+  \begin{itemize}
     \item 
   \end{itemize}
 \end{frame}
 
-
 \begin{frame}
-  \frametitle{Slide with two columns: items and a graphic}   
-  \begin{columns}[c]
-  \column{2in}  % slides are 3in high by 5in wide
+  \frametitle{Pollard Rho Komplexit‰t}
   \begin{itemize}
-  \item<1-> First item
-  \item<2-> Second item TEST
-  \item<3-> ...
+    \item 
   \end{itemize}
-  \column{2.5in}
-  \framebox{Insert graphic here % e.g. \includegraphics[height=2.65in]{graphic}
-  }
-  \end{columns}
 \end{frame}
-\note{The end}       % Add notes to yourself that will be displayed when
-		     % typeset with the notes class option
 
 \end{document}
