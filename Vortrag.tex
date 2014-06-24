@@ -1,7 +1,6 @@
-\documentclass[mathserif, compress]{beamer}
+\documentclass[mathserif, compress, german]{beamer}
 % Class options include: notes, handout, trans
 %                        
-
 % Theme for beamer presentation.
 \usepackage{beamerthemelined} 
 % Other themes include: beamerthemebars, beamerthemelined, 
@@ -10,7 +9,7 @@
 \title{Primfaktorzerlegung und Primzahltests}    % Enter your title between curly braces
 \author{Maximilian Scholz}                 % Enter your name between curly braces
 \institute{Proseminar Mathematik}      % Enter your institute name between curly braces
-\date{\today}                    % Enter the date or \today between curly braces
+\date{25. Juni 2014}                    % Enter the date or \today between curly braces
 
 \setbeamertemplate{footline}[frame number]
 \begin{document}
@@ -49,14 +48,13 @@
   \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
 
   \begin{itemize}
-  \item<2-> Der kleinste Primfaktor $> 1$ einer zusammengesetzten Zahl $n$ ist eine Primzahl $p$. 
+  \item<2-> W\"ahle eine nat\"urliche Zahl $n> 1$.
   \vspace{3mm}
-  \item<3-> Da $p$ der kleinste Primfaktor ist, gilt $p \leq \frac{n}{p}$, also $ p \leq \sqrt{n} $.
+  \item<3-> Die kleinste noch nicht gestrichene oder benutzte Zahl $m$ mit $2\leq m$ wird die aktuelle.
   \vspace{3mm}
-  \item<4-> Alle zusammengesetzten Zahlen $n\leq N$ werden also beim Sieben mit einer Siebzahl $q$ mit $q \leq \sqrt{n}$ gestrichen.\\
-            $\Rightarrow$ Abbruchkriterium
+  \item<4-> Wenn $m^2 \leq n$ ist, streiche alle Vielfachen cm ($c \in \mathbb{N}$) mit $m^2 \leq cm \leq n$
   \vspace{3mm}
-  \item<5-> Die \"ubrigen Zahlen sind also Primzahlen.
+  \item<5-> \"Ubrig bleiben alle Primzahlen von $0$ bis $n$.
   \end{itemize}
 \end{frame}
 
@@ -90,7 +88,8 @@
       \vspace{3mm}
     \item<4-> $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.
       \vspace{3mm}
-    \item<5-> Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
+    \item<5-> Es gibt ein $c>0$, sodass $x_c=x_{2c}$.\\
+              Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
   \end{itemize}
 \end{frame}
 
@@ -122,9 +121,9 @@
       \vspace{3mm}
     \item<3-> Gesucht sind $a, b$ sodass\\
               $a \equiv b \pmod p \Rightarrow p|a-b$ \\
-              $a \not \equiv b \pmod n \Rightarrow n \not | a-b$
+             % $a \not \equiv b \pmod n \Rightarrow n \not | a-b$
       \vspace{3mm}
-    \item<4-> Daraus folgt $1<ggT(a-b,n)< n$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,n)$ ein nichttrivialer Primfaktor von $n$.
+    \item<4-> Daraus folgt $1<ggT(a-b,n) \leq  n$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,n)$ ein nichttrivialer Primfaktor von $n$.
   \end{itemize}
 \end{frame}
 
@@ -156,15 +155,14 @@ $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.\\
 
 \begin{frame}
   \frametitle{Beweis Teil 2}
-Die Folge $y_0, y_1, y_2, ...$ gegeben durch $y_0 = x_0$ und
-$y_i+1 = f(f(y_i))$ ist gleich der Folge $x_0, x_2, x_4,...$ \\
-\ \\
+Es gibt ein $c>0$, sodass $x_c=x_{2c}$.\\ 
+Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
   \begin{itemize}
     \item<2-> Angenommen $x_i=x_j$ f\"ur $j>i$.
      \vspace{3mm}
     \item<3-> Falls $c\geq i$ und $2c=c+k(j-i)\geq i$ mit $k\geq 0$ muss $x_c=x_{2c}$ gelten.
      \vspace{3mm}
-    \item<4-> Man w\"ahle $k\geq 0$, sodass $c=k(j-1)\geq i$ und erh\"alt das gesuchte $c$.
+    \item<4-> Man w\"ahle $k\geq 0$, sodass $c=k(j-i)\geq i$ und erh\"alt das gesuchte $c$.
      \vspace{3mm}
     \item<5-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
   \end{itemize}
