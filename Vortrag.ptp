@@ -4,12 +4,12 @@
 	typesetmode: PDF
 	spellwordlist: american
 Vortrag.tex
-	wndpos: 1 -1 -1 -1 -1 107 -19 1502 938
+	wndpos: 1 -1 -1 -1 -1 10 3 1405 945
 	zorder: 0
-	edit: 4538
+	edit: 6558
 Vortrag.log
-Vortrag.aux
 Vortrag.out
 Vortrag.nav
 Vortrag.toc
+Vortrag.aux
 Vortrag.pdf

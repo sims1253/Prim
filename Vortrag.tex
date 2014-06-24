@@ -53,19 +53,31 @@
   \vspace{3mm}
   \item<2-> Da $p$ der kleinste Teiler ist, gilt $p \leq \frac{n}{p}$, also $ p^2 \leq n $.
   \vspace{3mm}
-  \item<3-> Alle zusammengesetzten Zahlen $n<N$ werden also beim Sieben mit einer Siebzahl $q$ mit $q^2<n$ gestrichen.
+  \item<3-> Alle zusammengesetzten Zahlen $n<N$ werden also beim Sieben mit einer Siebzahl $q$ mit $q^2<n$ gestrichen.\\
+            $\Rightarrow$ Abbruchkriterium
   \vspace{3mm}
   \item<4-> Die \"ubrigen Zahlen sind also Primzahlen.
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
-BILD
-\end{frame}
-
 
 \section{Pollard Rho Methode}
+
+\subsection{Gebutstagsproblem}
+
+\begin{frame}
+  \frametitle{Gebutstagsproblem}
+  \begin{itemize}
+    \item<1-> N Personen sind auf einem Geburtstag. Wie hoch ist die Wahrscheinlichkeit, dass zwei am gleichen Tag Geburtstag haben?
+    \vspace{3mm}
+    \item<2-> Inverse Problem: \\ Wie hoch ist die Wahrscheinlichkeit $P(N)$, dass kein Geburtstag mehrfach vorkommt?\\
+    \ \\ $P(3)=\frac{364}{365}\cdot \frac{363}{365}$
+    \vspace{3mm}
+    \item<3-> Im Allgemeinen: $P(N)=\frac{365\cdot 364...(365-N+1)}{365^N}$\\
+    \ \\     F\"ur gro\ss{}e N liegt die Zahl der Persohnen die man durchschnittlich braucht um eine Wiederholung zu erhalteb bei \\
+	     $\sqrt{\frac{\pi N}{2}}$
+  \end{itemize}
+\end{frame}
 
 \subsection{Hase Igel Algorithmus}
 
@@ -82,31 +94,11 @@ BILD
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Beweis Teil 1}
-  \begin{itemize}
-    \item<1->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(n)=f^n(x_0)$
-      \vspace{3mm}
-    \item<2-> M ist beschr\"ankt also kann g nicht injektiv sein. Daraus folgt:\\
-	      $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
-  \end{itemize}
-\end{frame}
+
+\subsection{Pollard Rho Algorithmus}
 
 \begin{frame}
-  \frametitle{Beweis Teil 2}
-  \begin{itemize}
-    \item<1-> Angenommen $x_i=x_j$ f\"ur $j>i$.
-     \vspace{3mm}
-    \item<2-> Falls $n\geq i$ und $2n=n+k(j-i)\geq i$ mit $k\geq 0$ muss $x_n=x_2n$ gelten.
-     \vspace{3mm}
-    \item<3-> Man w\"ahle $k\geq 0$ sodass $n=k(j-1)\geq i$ und erh\"alt das gesuchte $n$.
-     \vspace{3mm}
-    \item<4-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Konkruenz modulo p}
+  \frametitle{Kongruenz modulo p}
   \begin{itemize}
 	\item<1->$a \equiv b \pmod p \Leftrightarrow p|(a-b)$
 \vspace{3mm}
@@ -119,15 +111,17 @@ BILD
 \end{frame}
 
 
-\subsection{Pollard Rho Algorithmus}
+
 \begin{frame}
   \frametitle{Pollard Rho Methode}
   \begin{itemize}
     \item<1-> Sei $N$ eine zusammengesetzte Zahl und \\$p$ ein Primfaktor von $N$.
       \vspace{3mm}
-    \item<2-> Gesucht sind $0\leq a,b<N$ sodass $a \equiv b \pmod p$. \\Dann gilt $p|a-b$
+    \item<2-> Gesucht sind $a, b$ sodass\\
+              $a \equiv b \pmod p \Rightarrow p|a-b$ \\
+              $a \not \equiv b \pmod N \Rightarrow N \not | a-b$
       \vspace{3mm}
-    \item<3-> Daraus folgt $1<ggT(a-b,N)\leq N$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,N)$ ein nichttrivialer Faktor von N.
+    \item<3-> Daraus folgt $1<ggT(a-b,N)< N$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,N)$ ein nichttrivialer Faktor von N.
   \end{itemize}
 \end{frame}
 
@@ -138,9 +132,38 @@ BILD
      \vspace{3mm}
     \item<2-> Man erzeuge eine Folge von Pseudozufallszahlen mit:\\ $x_0= S, \ x_{i+1}=f(x_i)\mod N$.
     \vspace{3mm}
-    \item<3-> Wird schlieﬂlich periodisch, da beschr\"ankt.
+    \item<3-> Wird schlie\ss{}lich periodisch, da beschr\"ankt.
     \vspace{3mm}
     \item<4-> Anstatt $x_k=^?y_k$ suchen wir nach $ggT(x_k - y_k)>^? 1$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beweis Teil 1}
+$\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.\\
+\ \\
+\ \\
+  \begin{itemize}
+    \item<1->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(n)=f^n(x_0)$
+      \vspace{3mm}
+    \item<2-> M ist beschr\"ankt also kann g nicht injektiv sein. Daraus folgt:\\
+	      $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{, sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beweis Teil 2}
+Die Folge y0, y1, y2, ... gegeben durch y0 = x0 und
+yi+1 = f(f(yi)) ist gleich der Folge x0, x2, x4,... \\
+\ \\
+  \begin{itemize}
+    \item<1-> Angenommen $x_i=x_j$ f\"ur $j>i$.
+     \vspace{3mm}
+    \item<2-> Falls $n\geq i$ und $2n=n+k(j-i)\geq i$ mit $k\geq 0$ muss $x_n=x_2n$ gelten.
+     \vspace{3mm}
+    \item<3-> Man w\"ahle $k\geq 0$ sodass $n=k(j-1)\geq i$ und erh\"alt das gesuchte $n$.
+     \vspace{3mm}
+    \item<4-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
   \end{itemize}
 \end{frame}
 
@@ -156,26 +179,36 @@ Parameter: $x_0 = y_0 = 0, \ f(x)=(x^2+1)\mod N$
 	1 & 1 & 2 & 1 \\ \hline
 	2 & 2 & 26 & 1 \\ \hline
 	3 & 5 & 15 & 1 \\ \hline
-	4 & 26 & 26 & 0 \\ \hline
+	4 & 26 & 26 & 143 \\ \hline
 	5 & 105 & 15 & 1 \\ \hline
 	6 & 15 & 26 & 11 \\ \hline
   \end{array}
 	$$
 \end{frame}
 
-\subsection{Komplexit‰t}
+\subsection{Komplexit\"at}
+
 \begin{frame}
-  \frametitle{Gebutstagsproblem}
+  \frametitle{Pollard Rho Komplexit\"at}
   \begin{itemize}
-    \item 
+    \item Wir suchen keine Geburtstag aber Wiederholungen $\pmod p$.\\
+    \ \\ $x_k \equiv x_{2k} \pmod p$
+    \item Wir erhalten mithilfe des Geburtstagsproblemes $\mathcal O(\sqrt{\frac{\pi p}{2}})$
+    \item Da $p\leq \sqrt{N}$ gilt $\sqrt{p} \leq \sqrt[4]{N}$\\
+	  $\Rightarrow \mathcal O(\sqrt[4]{N})$
+    \item Fazit: Nach durchschnittlich $\sqrt[4]{N}$ Versuchen findet man einen Primfaktor von $N$.
+    \item Wichtig ist noch die Geschwindigkeit des ggT $\rightarrow$ Euklid\\
+          und der Aufwand der funktion $f$.
+    \item Zusammen ergibt dies $\mathcal (O(\text{Euklid})+2\mathcal O(f))\cdot\mathcal O(\sqrt[4]{N})$
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Pollard Rho Komplexit‰t}
+\frametitle{Quellen}
   \begin{itemize}
-    \item 
-  \end{itemize}
+    \item Niels Lauritzen. Concrete Abstract Algebra. Reptrinted with corrections 2006
+    \item \url{www.bk2boint.dnsalias.org/int_neu/tl_files/Material\%20Informatik/erathostenes/sieb.pdf}
+  \end{itemize}    
 \end{frame}
 
 \end{document}

@@ -1,7 +1,8 @@
 \beamer@endinputifotherversion {3.06pt}
 \beamer@sectionintoc {2}{Einleitung zu Primzahlen}{3}{0}{1}
 \beamer@sectionintoc {3}{Sieb des Eratosthenes}{4}{0}{2}
-\beamer@sectionintoc {4}{Pollard Rho Methode}{9}{0}{3}
-\beamer@subsectionintoc {4}{1}{Hase Igel Algorithmus}{9}{0}{3}
-\beamer@subsectionintoc {4}{2}{Pollard Rho Algorithmus}{23}{0}{3}
-\beamer@subsectionintoc {4}{3}{Komplexität}{31}{0}{3}
+\beamer@sectionintoc {4}{Pollard Rho Methode}{8}{0}{3}
+\beamer@subsectionintoc {4}{1}{Gebutstagsproblem}{8}{0}{3}
+\beamer@subsectionintoc {4}{2}{Hase Igel Algorithmus}{11}{0}{3}
+\beamer@subsectionintoc {4}{3}{Pollard Rho Algorithmus}{15}{0}{3}
+\beamer@subsectionintoc {4}{4}{Komplexit\"at}{33}{0}{3}
