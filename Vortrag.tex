@@ -34,7 +34,7 @@
 \begin{frame}
   \frametitle{Primzahlen}
   \begin{itemize}
-    \item Nat\"urliche Zahlen $> 1$ die nur durch sich selbst und $1$ teilbar sind.
+    \item Def.: Nat\"urliche Zahlen $> 1$ die nur durch sich selbst und $1$ teilbar sind.
       \vspace{3mm}
     \item Es gibt unendlich viele Primzahlen. (Euklid)
       \vspace{3mm}
@@ -49,14 +49,14 @@
   \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
 
   \begin{itemize}
-  \item<1-> Der kleinste Teiler $> 1$ einer zusammengesetzten Zahl $n$ ist eine Primzahl $p$. 
+  \item<2-> Der kleinste Primfaktor $> 1$ einer zusammengesetzten Zahl $n$ ist eine Primzahl $p$. 
   \vspace{3mm}
-  \item<2-> Da $p$ der kleinste Teiler ist, gilt $p \leq \frac{n}{p}$, also $ p^2 \leq n $.
+  \item<3-> Da $p$ der kleinste Primfaktor ist, gilt $p \leq \frac{n}{p}$, also $ p \leq \sqrt{n} $.
   \vspace{3mm}
-  \item<3-> Alle zusammengesetzten Zahlen $n<N$ werden also beim Sieben mit einer Siebzahl $q$ mit $q^2<n$ gestrichen.\\
+  \item<4-> Alle zusammengesetzten Zahlen $n\leq N$ werden also beim Sieben mit einer Siebzahl $q$ mit $q \leq \sqrt{n}$ gestrichen.\\
             $\Rightarrow$ Abbruchkriterium
   \vspace{3mm}
-  \item<4-> Die \"ubrigen Zahlen sind also Primzahlen.
+  \item<5-> Die \"ubrigen Zahlen sind also Primzahlen.
   \end{itemize}
 \end{frame}
 
@@ -68,13 +68,13 @@
 \begin{frame}
   \frametitle{Gebutstagsproblem}
   \begin{itemize}
-    \item<1-> N Personen sind auf einem Geburtstag. Wie hoch ist die Wahrscheinlichkeit, dass zwei am gleichen Tag Geburtstag haben?
+    \item<2-> N Personen sind auf einem Geburtstag. Wie hoch ist die Wahrscheinlichkeit, dass zwei am gleichen Tag Geburtstag haben?
     \vspace{3mm}
-    \item<2-> Inverse Problem: \\ Wie hoch ist die Wahrscheinlichkeit $P(N)$, dass kein Geburtstag mehrfach vorkommt?\\
+    \item<3-> Inverse Problem: \\ Wie hoch ist die Wahrscheinlichkeit $P(N)$, dass kein Geburtstag mehrfach vorkommt?\\
     \ \\ $P(3)=\frac{364}{365}\cdot \frac{363}{365}$
     \vspace{3mm}
-    \item<3-> Im Allgemeinen: $P(N)=\frac{365\cdot 364...(365-N+1)}{365^N}$\\
-    \ \\     F\"ur gro\ss{}e N liegt die Zahl der Persohnen die man durchschnittlich braucht um eine Wiederholung zu erhalteb bei \\
+    \item<4-> Im Allgemeinen: $P(N)=\frac{365\cdot 364...(365-N+1)}{365^N}$\\
+    \ \\     F\"ur gro\ss{}e N liegt die Zahl der Personen die man durchschnittlich braucht um eine Wiederholung zu erhalten bei \\
 	     $\sqrt{\frac{\pi N}{2}}$
   \end{itemize}
 \end{frame}
@@ -84,13 +84,13 @@
 \begin{frame}
   \frametitle{Hase Igel Algorithmus}
   \begin{itemize}
-    \item<1-> Sei $M$ eine endliche Menge mit der Abbildung $f : M \rightarrow M$.
+    \item<2-> Sei $M$ eine endliche Menge mit der Abbildung $f : M \rightarrow M$.
       \vspace{3mm}
-    \item<2-> Man w\"ahle $x_0 \in M$ und erzeuge die Folge $x_0, x_1, x_2,...$ mit $x_{i+1} = f(x_i)$ .
+    \item<3-> Man w\"ahle $x_0 \in M$ und erzeuge die Folge $x_0, x_1, x_2,...$ mit $x_{i+1} = f(x_i)$ .
       \vspace{3mm}
-    \item<3-> $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.
+    \item<4-> $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.
       \vspace{3mm}
-    \item<4-> Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
+    \item<5-> Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
   \end{itemize}
 \end{frame}
 
@@ -102,39 +102,42 @@
   \begin{itemize}
 	\item<1->$a \equiv b \pmod p \Leftrightarrow p|(a-b)$
 \vspace{3mm}
-	\item<2->$a=p\cdot x +c,\ \ \ b= p\cdot y +c$
+	\item<2->$a=p\cdot x +r,\ \ \ b= p\cdot y +r$
 \vspace{3mm}
-	\item<3->$a-b=p(x-y)+(c-c)=p(x-y)$
+	\item<3->$a-b=p(x-y)+(r-r)=p(x-y)$
 \vspace{3mm}
 	\item<4->$p|p(x-y)$
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+\centering Fragen?
+\end{frame}
 
 
 \begin{frame}
   \frametitle{Pollard Rho Methode}
   \begin{itemize}
-    \item<1-> Sei $N$ eine zusammengesetzte Zahl und \\$p$ ein Primfaktor von $N$.
+    \item<2-> Sei $n$ eine zusammengesetzte Zahl und \\$p$ ein Primfaktor von $n$.
       \vspace{3mm}
-    \item<2-> Gesucht sind $a, b$ sodass\\
+    \item<3-> Gesucht sind $a, b$ sodass\\
               $a \equiv b \pmod p \Rightarrow p|a-b$ \\
-              $a \not \equiv b \pmod N \Rightarrow N \not | a-b$
+              $a \not \equiv b \pmod n \Rightarrow n \not | a-b$
       \vspace{3mm}
-    \item<3-> Daraus folgt $1<ggT(a-b,N)< N$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,N)$ ein nichttrivialer Faktor von N.
+    \item<4-> Daraus folgt $1<ggT(a-b,n)< n$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,n)$ ein nichttrivialer Primfaktor von $n$.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Pollard Rho Algorithmus}
   \begin{itemize}
-    \item<1-> Sei $f(x)$ eine ganzzahlige Polynomfunktion und $S \in \mathbb{Z}$.
+    \item<2-> Sei $f(x)$ eine ganzzahlige Polynomfunktion und $s \in \mathbb{Z}$.
      \vspace{3mm}
-    \item<2-> Man erzeuge eine Folge von Pseudozufallszahlen mit:\\ $x_0= S, \ x_{i+1}=f(x_i)\mod N$.
+    \item<3-> Man erzeuge eine Folge von Pseudozufallszahlen mit:\\ $x_0= s, \ x_{i+1}=f(x_i)\mod n$.
+   \vspace{3mm}
+    \item<4-> Wird schlie\ss{}lich periodisch, da beschr\"ankt.
     \vspace{3mm}
-    \item<3-> Wird schlie\ss{}lich periodisch, da beschr\"ankt.
-    \vspace{3mm}
-    \item<4-> Anstatt $x_k=^?y_k$ suchen wir nach $ggT(x_k - y_k)>^? 1$
+    \item<5-> Anstatt $x_k=^?y_k$ suchen wir nach $1 <^? ggT(x_k - y_k, n)<^? n$
   \end{itemize}
 \end{frame}
 
@@ -144,26 +147,26 @@ $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.\\
 \ \\
 \ \\
   \begin{itemize}
-    \item<1->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(n)=f^n(x_0)$
+    \item<2->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(t)=f^t(x_0)$
       \vspace{3mm}
-    \item<2-> M ist beschr\"ankt also kann g nicht injektiv sein. Daraus folgt:\\
+    \item<3-> $M$ ist beschr\"ankt also kann $g$ nicht injektiv sein. Daraus folgt:\\
 	      $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{, sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Beweis Teil 2}
-Die Folge y0, y1, y2, ... gegeben durch y0 = x0 und
-yi+1 = f(f(yi)) ist gleich der Folge x0, x2, x4,... \\
+Die Folge $y_0, y_1, y_2, ...$ gegeben durch $y_0 = x_0$ und
+$y_i+1 = f(f(y_i))$ ist gleich der Folge $x_0, x_2, x_4,...$ \\
 \ \\
   \begin{itemize}
-    \item<1-> Angenommen $x_i=x_j$ f\"ur $j>i$.
+    \item<2-> Angenommen $x_i=x_j$ f\"ur $j>i$.
      \vspace{3mm}
-    \item<2-> Falls $n\geq i$ und $2n=n+k(j-i)\geq i$ mit $k\geq 0$ muss $x_n=x_2n$ gelten.
+    \item<3-> Falls $c\geq i$ und $2c=c+k(j-i)\geq i$ mit $k\geq 0$ muss $x_c=x_{2c}$ gelten.
      \vspace{3mm}
-    \item<3-> Man w\"ahle $k\geq 0$ sodass $n=k(j-1)\geq i$ und erh\"alt das gesuchte $n$.
+    \item<4-> Man w\"ahle $k\geq 0$, sodass $c=k(j-1)\geq i$ und erh\"alt das gesuchte $c$.
      \vspace{3mm}
-    \item<4-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
+    \item<5-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
   \end{itemize}
 \end{frame}
 
@@ -181,9 +184,12 @@ Parameter: $x_0 = y_0 = 0, \ f(x)=(x^2+1)\mod N$
 	3 & 5 & 15 & 1 \\ \hline
 	4 & 26 & 26 & 143 \\ \hline
 	5 & 105 & 15 & 1 \\ \hline
-	6 & 15 & 26 & 11 \\ \hline
+	\alert{6} & \alert{15} & \alert{26} & \alert{11} \\ \hline
   \end{array}
 	$$
+\begin{itemize}
+  \item<2-> Mit $\frac{143}{11}=13$ erh\"alt man den zweiten Primfaktor. 
+\end{itemize}
 \end{frame}
 
 \subsection{Komplexit\"at}
@@ -194,12 +200,12 @@ Parameter: $x_0 = y_0 = 0, \ f(x)=(x^2+1)\mod N$
     \item Wir suchen keine Geburtstag aber Wiederholungen $\pmod p$.\\
     \ \\ $x_k \equiv x_{2k} \pmod p$
     \item Wir erhalten mithilfe des Geburtstagsproblemes $\mathcal O(\sqrt{\frac{\pi p}{2}})$
-    \item Da $p\leq \sqrt{N}$ gilt $\sqrt{p} \leq \sqrt[4]{N}$\\
-	  $\Rightarrow \mathcal O(\sqrt[4]{N})$
-    \item Fazit: Nach durchschnittlich $\sqrt[4]{N}$ Versuchen findet man einen Primfaktor von $N$.
+    \item Da $p\leq \sqrt{n}$ gilt $\sqrt{p} \leq \sqrt[4]{n}$\\
+	  $\Rightarrow \mathcal O(\sqrt[4]{n})$
+    \item Fazit: Nach durchschnittlich $\sqrt[4]{n}$ Versuchen findet man einen Primfaktor von $n$.
     \item Wichtig ist noch die Geschwindigkeit des ggT $\rightarrow$ Euklid\\
-          und der Aufwand der funktion $f$.
-    \item Zusammen ergibt dies $\mathcal (O(\text{Euklid})+2\mathcal O(f))\cdot\mathcal O(\sqrt[4]{N})$
+          und der Aufwand der Funktion $f$.
+    \item Zusammen ergibt dies $(\mathcal O(\text{Euklid})+3\mathcal O(f))\cdot\mathcal O(\sqrt[4]{n})$
   \end{itemize}
 \end{frame}
 
