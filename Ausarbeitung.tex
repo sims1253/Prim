@@ -31,6 +31,8 @@
 % die W\"orter werden anhand der neue Rechtschreibung 
 % automatisch getrennt. 
 \usepackage{lmodern}
+\usepackage{subfig}
+\usepackage{colortbl}
 
 \title{Primfaktorzerlegung und Primzahltests}
 \author{Maximilian Scholz  \\
@@ -81,10 +83,80 @@
 
 		
 	\section{Sieb des Eratosthenes} \label{Sieb des Eratosthenes}
-	
+	Das Sieb des Eratosthenes ist ein etwa 2000 Jahre altes Verfahren, um alle Primzahlen in einem gegebenen Zahlenbereich zu finden. 
 	\subsection{Funktionsweise}
+	Das Sieb des Eratosthenes bestimmt alle Primzahlen N, indem es alle zusammengesetzten Zahlen streicht, daher der Name: Sieb.\\
+	Das Abbruchkriterium ist ein sch\"önes Beispiel wie unn\"ötiger Aufwand vermieden werden kann.
 	\subsection{Beispiel}
+	Bevor die genaue Funktionsweise behandelt wird, hier einmal ein Beispiel f\"ür die Funktionsweise der Methode.\\
+	\ \\
+	\ \\
+	 \begin{table}[!ht] 
+	 	\centering
+	 	
+	 		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+	 			\hline
+	 			0  &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
+	 			10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 \\
+	 			20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 \\
+	 			\hline
+	 		\end{tabular}
+	 		
+	 		\vspace{8mm}
+	 	% TODO hier noch erklären was passiert
+	 		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+	 			\hline
+	 			 \cellcolor{red}0  &  \cellcolor{red}1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
+	 			 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 \\
+	 			 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 \\
+	 			\hline
+	 		\end{tabular}
+	 		
+			\vspace{8mm}
+			% TODO hier noch erklären was passiert
+	 		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+	 			\hline
+	 			 \cellcolor{red}0  & \cellcolor{red} 1 &  2 &  3 &  \cellcolor{red}4 &  5 & \cellcolor{red} 6 &  7 & \cellcolor{red} 8 &  9 \\
+	 			 \cellcolor{red}10 & 11 & \cellcolor{red}12 & 13 & \cellcolor{red}14 & 15 & \cellcolor{red}16 & 17 & \cellcolor{red}18 & 19 \\
+	 			 \cellcolor{red}20 & 21 & \cellcolor{red}22 & 23 & \cellcolor{red}24 & 25 & \cellcolor{red}26 & 27 & \cellcolor{red}28 & 29 \\
+	 			 \hline
+	 		\end{tabular}
+	 		
+	 		\vspace{8mm}
+	 		% TODO hier noch erklären was passiert
+	  		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		 			\hline	 		 			
+		 		\cellcolor{red}0  & \cellcolor{red} 1 &  2 &  3 & \cellcolor{red}4 &  5 & \cellcolor{red} 6 &  7 & \cellcolor{red} 8 &  \cellcolor{red}9 \\
+	 		 	\cellcolor{red}10 & 11 & \cellcolor{red}12 & 13 & \cellcolor{red}14 & \cellcolor{red}15 & \cellcolor{red}16 & 17 & \cellcolor{red}18 & 19 \\
+	 		 	\cellcolor{red}20 & \cellcolor{red}21 & \cellcolor{red}22 & 23 & \cellcolor{red}24 & 25 & \cellcolor{red}26 & \cellcolor{red}27 & \cellcolor{red}28 & 29 \\
+	 		 	\hline
+	 		\end{tabular}
+	 		
+			\vspace{8mm}
+			% TODO hier noch erklären was passiert
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+				\hline	 		 			
+				\cellcolor{red}0  & \cellcolor{red} 1 &  2 &  3 & \cellcolor{red}4 &  5 & \cellcolor{red} 6 &  7 & \cellcolor{red} 8 &  \cellcolor{red}9 \\
+				\cellcolor{red}10 & 11 & \cellcolor{red}12 & 13 & \cellcolor{red}14 & \cellcolor{red}15 & \cellcolor{red}16 & 17 & \cellcolor{red}18 & 19 \\
+				\cellcolor{red}20 & \cellcolor{red}21 & \cellcolor{red}22 & 23 & \cellcolor{red}24 & \cellcolor{red}25 & \cellcolor{red}26 & \cellcolor{red}27 & \cellcolor{red}28 & 29 \\
+				\hline
+			\end{tabular}
+			
+			\vspace{8mm}
+			% TODO hier noch erklären was passiert
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+				\hline	 		 			
+				\cellcolor{red}0  & \cellcolor{red} 1 &  \cellcolor{green}2 &  \cellcolor{green}3 & \cellcolor{red}4 &  \cellcolor{green}5 & \cellcolor{red} 6 &  \cellcolor{green}7 & \cellcolor{red} 8 &  \cellcolor{red}9 \\
+				\cellcolor{red}10 & \cellcolor{green}11 & \cellcolor{red}12 & \cellcolor{green}13 & \cellcolor{red}14 & \cellcolor{red}15 & \cellcolor{red}16 & \cellcolor{green}17 & \cellcolor{red}18 & \cellcolor{green}19 \\
+				\cellcolor{red}20 & \cellcolor{red}21 & \cellcolor{red}22 & \cellcolor{green}23 & \cellcolor{red}24 & \cellcolor{red}25 & \cellcolor{red}26 & \cellcolor{red}27 & \cellcolor{red}28 & \cellcolor{green}29 \\
+				\hline
+			\end{tabular}
+	 	
+	 	\caption{Caption}
+	 	\label{tab:ueberlaufzeiten}
+	 \end{table} 
 	\subsection{Mathematik}
+	Derbe die Referenz \ref{tab:ueberlaufzeiten}
 	\begin{itemize}
 	
 		\item article
