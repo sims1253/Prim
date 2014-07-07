@@ -213,6 +213,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+<<<<<<< HEAD
 *.aux
 *.bbl
 *.blg
@@ -221,3 +222,5 @@ pip-log.txt
 *.ptp
 *.ptp
 Vortrag.ptp
+=======
+>>>>>>> origin/master
