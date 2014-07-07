@@ -1,0 +1,149 @@
+\documentclass[12pt, a4paper, titlepage,twoside]{article}
+% Schriftgr\"o\ss e kann 10pt (Standardwert), 11pt oder 12 pt betragen
+% Papierformat kann letterpaper (Standardwert), legalpaper, executivepaper,
+% a4paper, a5paper oder b5paper sein. 
+% Seiten k\"onnen oneside (Standardwert) d.h. einseitig 
+% oder twoside beidseitig sein 
+% Textspalten k\"onnen onecolumn (Standardwert) d.h. eine Spalte oder 
+% twocolumn d.h. zwei Spalten sein
+% 
+% Grafiken k\"onnen final (Standardwert) d.h. sie werden eingef\"ugt 
+% oder draft d.h. Entwurf sein 
+%
+% Titelseite kann  notitlepage (Standardwert) d.h. keine eigene Titelseite
+% oder titlepage d.h. eine extra Seite als Titelseite  
+% 
+% Die Ausrichtung des Papiers kann  portrait (Standardwert) d.h. hochkant 
+% oder landscape d.h. querkant sein. 
+%
+% Gleichungen werden mit dem
+%   Standardwert zentriert dargestellt mit einer Nummer auf der rechten Seite 
+%   leqno die Gleichungen werden zentriert dargestellt mit einer Nummer 
+%         auf der linken Seite 
+%   fleqn die Gleichungen werden linksb\"undig dargestellt mit einer Nummer 
+%         auf der rechten Seite 
+%	
+% Auch hier werden zus\"atzliche Pakete eingebunden damit die Verwendung 
+% der deutschen Sprache nicht ganz so umst\"andlich wird.
+%\usepackage[latin1]{inputenc}% erm\"oglich die direkte Eingabe der Umlaute 
+%\usepackage[T1]{fontenc} % das Trennen der Umlaute
+\usepackage{ngerman} % hiermit werden deutsche Bezeichnungen genutzt und 
+% die W\"orter werden anhand der neue Rechtschreibung 
+% automatisch getrennt. 
+\usepackage{lmodern}
+
+\title{Primfaktorzerlegung und Primzahltests}
+\author{Maximilian Scholz  \\
+	Technische Universit\"at Hamburg-Harburg \\
+}
+
+\date{\today}
+% \date{\today} das heutige Datum  
+% \date{25.12.00} oder ein bestimmtes Datum 
+% \date{ } oder gar kein Datum
+
+\begin{document}
+	
+	% Hinweis: \title{um was auch immer es geht}, \author{wer es auch immer 
+	% geschrieben hat} und  \date{wann auch immer das war} k\"onnen vor 
+	% oder nach dem  Kommando \begin{document} stehen 
+	% Aber der \maketitle Befehl mu\ss{} nach dem \begin{document} Kommando stehen! 
+	
+	
+	\maketitle
+	
+	\begin{abstract}
+		
+		Mit dieser Ausarbeitung im Rahmen des Proseminars Mathematik will ich eine Einleitung in die Welt der Primzahlen im Allgemeinen und der Primfaktorzerlegung im besonderen schaffen. \\
+		Ich beginne mit einer Einleitung zu den Primzahlen und zeige anhand von Beispielen wie sich die Problematik der Primfaktorzerlegung auf verschiedene Wege angehen l\"asst. Hierzu beleuchte ich nicht nur die Algorithmen im einzelnen sondern zeige auch, welche Werkzeuge benutzt werden und erkl\"are auch diese detaillierter, da mir diese Herleitungen in der Fachliteratur oft zu kurz kommen.\\
+		Letztendlich ist mein Ziel vor Verst\"andnis in einem sehr begrenzten Bereich zu schaffen anstatt in die Breite zu gehen, denn nur durch wirkliches Verst\"andnis k\"onnen neue Entdeckungen wie der zum Beispiel der AKS-Algorithmus gemacht werden.
+	\end{abstract}
+	
+	
+	
+	\tableofcontents % Um ein Inhaltsverzeichnis zu generieren 
+	\newpage
+	
+	
+	\section{Einf\"uhrung in Primzahlen} \label{Primzahlen}
+	Die wichtigsten Dinge die es zu Primzahlen im Bezug auf diesen Text gibt lassen sich wie folgt zusammenfassen:
+
+	\begin{itemize}
+		\item Definition: Jede nat\"urliche Zahl $>1$, die nur von sich selber und  $1$ geteilt wird, ist eine Primzahl. Dies l\"asst sich auch so beschreiben, dass eine Primzahl nur beim Teilen durch $1$ und sich selber keinen Rest hat.
+		\item Der griechische Mathematiker Euklid hat bewiesen, dass es unendlich Primzahlen gibt. W\"urde dies nicht gelten, k\"onnte es zu Problemen bei modernen Kryptographischen Verfahren kommen, da diese auf immer gr\"oßer werdenden Primzahlen beruhen. 
+		\item  Ebenfalls von Euklid kommt der Beweis daf\"ur, dass sich jede nat\"urliche Zahl als Produkt von Primzahlen darstellen l\"asst, wobei man hierf\"ur die triviale Multiplikation mit der $1$ hinzuf\"ugen muss. Sp\"ater fand Gauss heraus, dass diese sogenannte Zerlegung bis auf die Reihenfolge der einzelnen Elemente eindeutig ist. \\
+		Dies ist besonders interessant weil es uns erm\"oglicht zusammengesetzte Zahlen $($also Zahlen, die nicht prim sind$)$ daran zu erkennen, dass wir einen Faktor ungleich der Zahl oder 1 gefunden haben. Außerdem birgt dies die Grundlage zu manchen Angriffen auf Kryptografische Verfahren wie RSA, auf die in diesem Text allerdings nicht weiter eingegangen werden.
+	\end{itemize}
+	
+	Dieser Text wird sich im weiteren Verlauf vor allem mit der Zerlegung von Zahlen in deren Primfaktoren befassen. 
+
+ 
+
+		
+	\section{Sieb des Eratosthenes} \label{Sieb des Eratosthenes}
+	
+	\subsection{Funktionsweise}
+	\subsection{Beispiel}
+	\subsection{Mathematik}
+	\begin{itemize}
+	
+		\item article
+		\item book 
+		\item report 
+		\item letter 
+	\end{itemize}
+	
+	
+	\begin{enumerate}
+		\item article
+		\item book 
+		\item report 
+		\item letter 
+	\end{enumerate}
+	
+	\begin{description}
+		\item[article\label{article}]{Article ist \ldots}
+		\item[book\label{book}]{Die book Klasse ist \ldots}
+		\item[report\label{report}]{Die Klasse report erm\"oglicht es \ldots}
+		\item[letter\label{letter}]{Wenn man einen Breif schreiben sollte man eine
+			andere Klasse nutzen, da diese f\"ur ein anderes als das deutsche
+			Briefformat ausgelegt ist.}
+	\end{description}
+	
+	\section{Pollard Rho Methode}
+	Keine Arbeit ohne eine Tabelle!
+		\subsection{Geburtstagsproblem}
+		\subsection{Hase Igel Algorithmus}
+			\subsubsection{Beispiel}
+			\subsubsection{Mathematik}
+		\subsection{Pollard Rho Algorithmus}
+			\subsubsection{Kongruenz modulo p}
+			\subsubsection{Idee}
+			\subsubsection{Beispiel}
+			\subsubsection{Mathematik}
+		\subsection{Komplexit\"at}
+	
+	\begin{tabular}{|l|c|r|p{2cm}|}
+		\hline
+		erste Spalte & zweite Spalte & dritte Spalte & vierte Spalte \\
+		\hline 
+		l steht f\"ur links & c f\"ur zentriert & r f\"ur rechts & und p f\"ur 
+		eine vordefinierte Gr\"o\ss e \\
+		\hline 
+	\end{tabular} 
+	
+	
+	\newpage
+	\section{Fazit}\label{conclusions}
+	Nach langer Suche hat sich herausgestellt, dass es kein l\"angeres
+	\LaTeX{} Beispiel, als das von \cite{lau} geschriebene gibt.
+	
+	
+	\newpage
+	\begin{thebibliography}{2}
+		\bibitem[Lauritzen]{lau} \emph{Niels Lauritzen. Concrete Abstract Algebra. Reptrinted with
+			corrections 2006}
+		\bibitem[bk2boint]{bk2} \emph{blub}
+	\end{thebibliography}
+	
+\end{document}

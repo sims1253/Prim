@@ -1,0 +1,218 @@
+\documentclass[mathserif, compress, german]{beamer}
+% Class options include: notes, handout, trans
+%                        
+% Theme for beamer presentation.
+\usepackage{beamerthemelined} 
+% Other themes include: beamerthemebars, beamerthemelined, 
+%                       beamerthemetree, beamerthemeplain
+
+\title{Primfaktorzerlegung und Primzahltests}    % Enter your title between curly braces
+\author{Maximilian Scholz}                 % Enter your name between curly braces
+\institute{Proseminar Mathematik}      % Enter your institute name between curly braces
+\date{25. Juni 2014}                    % Enter the date or \today between curly braces
+
+\setbeamertemplate{footline}[frame number]
+\begin{document}
+
+% Creates title page of slide show using above information
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section[]{}
+
+% Creates table of contents slide incorporating
+% all \section and \subsection commands
+\begin{frame}
+  \frametitle{Inhalt}
+  \tableofcontents
+\end{frame}
+
+\section{Einleitung zu Primzahlen}
+  
+\begin{frame}
+  \frametitle{Primzahlen}
+  \begin{itemize}
+    \item Def.: Nat\"urliche Zahlen $> 1$ die nur durch sich selbst und $1$ teilbar sind.
+      \vspace{3mm}
+    \item Es gibt unendlich viele Primzahlen. (Euklid)
+      \vspace{3mm}
+    \item Jede nat\"urliche Zahl l\"asst sich als Produkt von Primzalen darstellen. 
+	  Bis auf die Reihenfolge ist diese Darstellung eindeutig. (Euklid)
+  \end{itemize}
+\end{frame}
+
+\section{Sieb des Eratosthenes}
+
+\begin{frame}
+  \frametitle{Sieb des Eratosthenes}   % Insert frame title between curly braces
+
+  \begin{itemize}
+  \item<2-> W\"ahle eine nat\"urliche Zahl $n> 1$.
+  \vspace{3mm}
+  \item<3-> Die kleinste noch nicht gestrichene oder benutzte Zahl $m$ mit $2\leq m$ wird die aktuelle Zahl.
+  \vspace{3mm}
+  \item<4-> Wenn $m^2 \leq n$ ist, streiche alle Vielfachen $cm$ ($c \in \mathbb{N}$) mit $m^2 \leq cm \leq n$
+  \vspace{3mm}
+  \item<5-> \"Ubrig bleiben alle Primzahlen zwischen $0$ und $n$.
+  \end{itemize}
+\end{frame}
+
+
+\section{Pollard Rho Methode}
+
+\subsection{Gebutstagsproblem}
+
+\begin{frame}
+  \frametitle{Gebutstagsproblem}
+  \begin{itemize}
+    \item<2-> $N$ Personen sind auf einem Geburtstag. Wie hoch ist die Wahrscheinlichkeit, dass zwei am gleichen Tag Geburtstag haben?
+    \vspace{3mm}
+    \item<3-> Inverses Problem: \\ Wie hoch ist die Wahrscheinlichkeit $P(N)$, dass kein Geburtstag mehrfach vorkommt?\\
+    \ \\ $P(3)=\frac{364}{365}\cdot \frac{363}{365}$
+    \vspace{3mm}
+    \item<4-> Im Allgemeinen: $P(N)=\frac{365\cdot 364...(365-N+1)}{365^N}$\\
+    \ \\     F\"ur gro\ss{}e $N$ liegt die Zahl der Personen die man durchschnittlich braucht um eine Wiederholung zu erhalten bei \\
+	     $\sqrt{\frac{\pi N}{2}}$
+  \end{itemize}
+\end{frame}
+
+\subsection{Hase Igel Algorithmus}
+
+\begin{frame}
+  \frametitle{Hase Igel Algorithmus}
+  \begin{itemize}
+    \item<2-> Sei $M$ eine endliche Menge mit der Abbildung $f : M \rightarrow M$.
+      \vspace{3mm}
+    \item<3-> Man w\"ahle $x_0 \in M$ und erzeuge die Folge $x_0, x_1, x_2,...$ mit $x_{i+1} = f(x_i)$ .
+      \vspace{3mm}
+    \item<4-> $\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.
+      \vspace{3mm}
+    \item<5-> Es gibt ein $c>0$, sodass $x_c=x_{2c}$.\\
+              Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Pollard Rho Algorithmus}
+
+\begin{frame}
+  \frametitle{Kongruenz modulo p}
+  \begin{itemize}
+	\item<1->$a \equiv b \pmod p \Leftrightarrow p|(a-b)$
+\vspace{3mm}
+	\item<2->$a=p\cdot x +r,\ \ \ b= p\cdot y +r$
+\vspace{3mm}
+	\item<3->$a-b=p(x-y)+(r-r)=p(x-y)$
+\vspace{3mm}
+	\item<4->$p|p(x-y)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\centering Fragen?
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Pollard Rho Methode}
+  \begin{itemize}
+    \item<2-> Sei $n$ eine zusammengesetzte Zahl und \\$p$ ein Primfaktor von $n$.
+      \vspace{3mm}
+    \item<3-> Gesucht sind $a, b$, sodass\\
+              $a \equiv b \pmod p \Rightarrow p|a-b$ \\
+             % $a \not \equiv b \pmod n \Rightarrow n \not | a-b$
+      \vspace{3mm}
+    \item<4-> Daraus folgt $1<ggT(a-b,n) \leq  n$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,n)$ ein nichttrivialer Primfaktor von $n$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pollard Rho Algorithmus}
+  \begin{itemize}
+    \item<2-> Sei $f(x)$ eine ganzzahlige Polynomfunktion und $s \in \mathbb{Z}$.
+     \vspace{3mm}
+    \item<3-> Man erzeuge eine Folge von Pseudozufallszahlen mit:\\ $x_0= s, \ x_{i+1}=f(x_i)\mod n$.
+   \vspace{3mm}
+    \item<4-> Wird schlie\ss{}lich periodisch, da beschr\"ankt.
+    \vspace{3mm}
+    \item<5-> Anstatt $x_k=^?y_k$ suchen wir nach $1 <^? ggT(x_k - y_k, n)<^? n$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beweis Teil 1}
+$\exists \ i,j \in \mathbb{N}$, sodass $i \not= j$ und $x_i = x_j$ gilt.\\
+\ \\
+\ \\
+  \begin{itemize}
+    \item<2->  $g:\mathbb{N} \rightarrow M \ \text{gegeben durch} \ g(t)=f^t(x_0)$
+      \vspace{3mm}
+    \item<3-> $M$ ist beschr\"ankt also kann $g$ nicht injektiv sein. Daraus folgt:\\
+	      $\exists \ i,j \in \mathbb{N}, i\not=j \ \text{, sodass} \ g(i)=g(j) \ \text{und damit} \ x_i=x_j$ bei $i\not=j$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Beweis Teil 2}
+Es gibt ein $c>0$, sodass $x_c=x_{2c}$.\\ 
+Die Folge $y_0, y_1, y_2,...$ gegeben durch $y_0=x_0$ und $y_{i+1}=f(f(y_i))$ ist gleich der Folge $x_0,x_2,x_4,...$.
+  \begin{itemize}
+    \item<2-> Angenommen $x_i=x_j$ f\"ur $j>i$.
+     \vspace{3mm}
+    \item<3-> Falls $c\geq i$ und $2c=c+k(j-i)\geq i$ mit $k\geq 0$ muss $x_c=x_{2c}$ gelten.
+     \vspace{3mm}
+    \item<4-> Man w\"ahle $k\geq 0$, sodass $c=k(j-i)\geq i$ und erh\"alt das gesuchte $c$.
+     \vspace{3mm}
+    \item<5-> Aus $x_{m+2}=f(f(x_m))$ folgt $y_m = x_{2m}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pollard Rho Beispiel}
+Gesucht: Primfaktorzerlegung von N=143\\
+\ \\
+Parameter: $x_0 = y_0 = 0, \ f(x)=(x^2+1)\mod N$
+	$$
+  \begin{array}{c|c|c|c}
+	k & x_k = f(x_{k-1}) & y_k = f(f(y_{k-1})) & ggT(x_k - y_k, N) \\ \hline 
+        0 & 0 & 0 & 0 \\ \hline
+	1 & 1 & 2 & 1 \\ \hline
+	2 & 2 & 26 & 1 \\ \hline
+	3 & 5 & 15 & 1 \\ \hline
+	4 & 26 & 26 & 143 \\ \hline
+	5 & 105 & 15 & 1 \\ \hline
+	\alert{6} & \alert{15} & \alert{26} & \alert{11} \\ \hline
+  \end{array}
+	$$
+\begin{itemize}
+  \item<2-> Mit $\frac{143}{11}=13$ erh\"alt man den zweiten Primfaktor. 
+\end{itemize}
+\end{frame}
+
+\subsection{Komplexit\"at}
+
+\begin{frame}
+  \frametitle{Pollard Rho Komplexit\"at}
+  \begin{itemize}
+    \item Wir suchen keine Geburtstag aber Wiederholungen $\pmod p$.\\
+    \ \\ $x_k \equiv x_{2k} \pmod p$
+    \item Wir erhalten mithilfe des Geburtstagsproblemes $\mathcal O(\sqrt{\frac{\pi p}{2}})$
+    \item Da $p\leq \sqrt{n}$ gilt $\sqrt{p} \leq \sqrt[4]{n}$\\
+	  $\Rightarrow \mathcal O(\sqrt[4]{n})$
+    \item Fazit: Nach durchschnittlich $\sqrt[4]{n}$ Versuchen findet man einen Primfaktor von $n$.
+    \item Wichtig ist noch die Geschwindigkeit des ggT $\rightarrow$ Euklid\\
+          und der Aufwand der Funktion $f$.
+    \item Zusammen ergibt dies $(\mathcal O(\text{Euklid})+3\mathcal O(f))\cdot\mathcal O(\sqrt[4]{n})$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Quellen}
+  \begin{itemize}
+    \item Niels Lauritzen. Concrete Abstract Algebra. Reptrinted with corrections 2006
+    \item \url{www.bk2boint.dnsalias.org/int_neu/tl_files/Material\%20Informatik/erathostenes/sieb.pdf}
+  \end{itemize}    
+\end{frame}
+
+\end{document}
