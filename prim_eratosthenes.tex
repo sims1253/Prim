@@ -4,13 +4,11 @@
 	\section{Sieb des Eratosthenes}
 	 \label{sec:eratosthenes}
 	Das Sieb des Eratosthenes ist ein etwa 2000 Jahre altes Verfahren, um alle Primzahlen in einem gegebenen Zahlenbereich zu finden. 
-	\subsection{Funktionsweise}
+	\subsection{Idee}
 	Das Sieb des Eratosthenes bestimmt alle Primzahlen N, indem es alle zusammengesetzten Zahlen streicht, daher der Name: Sieb.\\
-	Das Abbruchkriterium ist ein sch\"önes Beispiel wie unn\"ötiger Aufwand vermieden werden kann.
+	Das Abbruchkriterium ist ein sch\"ones Beispiel wie unn\"otiger Aufwand vermieden werden kann.
 	\subsection{Beispiel}
-	Bevor die genaue Funktionsweise behandelt wird, hier einmal ein Beispiel f\"ür die Funktionsweise der Methode.\\
-	\ \\
-	\ \\
+	Bevor die genaue Funktionsweise behandelt wird, hier einmal ein Beispiel f\"ur die Funktionsweise der Methode.\\
 	\begin{table}[!ht] 
 		\centering
 		
@@ -112,14 +110,25 @@
 		\label{tab:eratosthenes6}			
 	\end{table}
 	
-	Da nur die Zahlen bis $25$ betrachtet werden, ist die Methode an dieser Stelle fertig. Mit $5=\sqrt{25}$ haben wir den kleinsten Teiler von 25 gefunden und damit alle m\"oglichen Teiler der Zahlen $<25$. 
+	Da nur die Zahlen bis $25$ betrachtet werden, ist die Methode an dieser Stelle fertig. Mit $5=\sqrt{25}$ haben wir das Abbruchkriterium erreicht und damit alle m\"oglichen Teiler der Zahlen $<25$ abgearbeitet. Die \"ubrigen Zahlen, die gr\"un unterlegt sind, sind Primzahlen. 
 	
 	\subsection{Mathematik}
+	\subsubsection{Funktionsweise}
 	Die Methode des quadratischen Siebes l\"asst sich wie folgt beschreiben:
-	\begin{itemize}
+	\begin{enumerate}
 		
-		\item W\"ahle eine nat\"uriche Zahl $n > 1$. Dies ist die obere Grenze der Zahlen, in denen nach Primzahlen gesucht wird.
-		\item Die kleinste noch nicht gestrichene Zahl $m$ mit $2 \leq m$ wird die aktuelle Zahl.
-		\item Wenn $m^2 \leq n$ ist, streiche alle Vielfachen $c\cdot m$ ($c \in \mathbb{N} $ ) mit $m^2 \leq cm \leq n$
-		\item \"Ubrig bleiben alle Primzahlen zwischen $0$ und $n$. 
-	\end{itemize}
+		\item W\"ahle eine nat\"uriche Zahl $n > 1$. Dies ist die obere Grenze der Zahlen, in denen nach Primzahlen gesucht wird. In dem Beispiel ist $n=25$.
+		\item Die kleinste noch nicht gestrichene Zahl $m$ mit $2 \leq m$ wird die aktuelle Zahl. Das sind im Beispiel $2,3$ und $5$.
+		\item Solange $m^2 \leq n$ gilt, streiche alle Vielfachen $c\cdot m$ ($c \in \mathbb{N} $ ) mit $m^2 \leq cm \leq n$. Im Beispiel durch die rote F\"arbung zu erkennen.
+		\item \"Ubrig bleiben alle Primzahlen zwischen $0$ und $n$. Im Beispiel durch die gr\"une F\"arbung zu erkennen.
+	\end{enumerate}
+	
+	Interessant ist zum einen das Abbruchkriterium, also wieso reicht es $m\leq \sqrt{n}$ zu betrachten um alle Primzahlen bis $n$ zu finden. Au\ss erdem sollte die intuitive Funktionsweise des Streichens von Vielfachen nicht als Beweis gesehen werden, dass die Methode des Siebens wirklich in jedem Fall funktioniert. F\"ur diese beiden Teile werden im folgenden Beweise gezeigt.
+
+	\subsubsection{Beweis}
+	Beide Teile lassen sich zusammen beweisen:\\
+	Der kleinste Teiler einer zusammengesetzten Zahl $n$ ist eine Primzahl $p$. Es gilt $p>1$.\\
+	Da $p | n$ gilt, gilt auch $\frac{n}{p}|n$. Das Ergebnis von $\frac{n}{p}$ ist nat\"urlich auch ein Teiler von $n$, da es mit $p$ multipliziert $n$ ergibt.\\
+	Da $p$ der kleinste Teiler ist, gilt $p \leq \frac{n}{p}$, da jeder andere Teiler mindestens so gro\ss wie $p$ sein muss. Daraus folgt: $$p^2 \leq n$$\\
+	Alle zusammengesetzten Zahlen $n < N$ werden also beim Sieben mit einer Zahl $p$, f\"ur die gilt $p \leq \sqrt{n}$, gestrichen.\\
+	Die \"ubrigen Zahlen m\"ussen also Primzahlen sein.
