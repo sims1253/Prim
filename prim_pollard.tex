@@ -2,12 +2,29 @@
 	\input{prim_tools.tex}
  	\subsection{Pollard Rho Algorithmus}
  	\subsubsection{Kongruenz modulo p}
- %	a  b (mod p) , p|(a − b)
- 	I a = p · x + r, b = p · y + r
- 	I a − b = p(x − y) + (r − r) = p(x − y)
- 	I p|p(x − y)
- 	7
+ 		Bevor wir mit dem n\"achsten Algorithmus anfangen können, brauchen wir noch ein Werkzeug.\\
+	 	Modulo Rechnen sollte bekannt sein. Weniger bekannt ist aber die Kongruenz $\pmod p$.
+ 	 
+		\[a \equiv b \pmod p \Leftrightarrow p|(a-b)\]
+		Gesprochen gesprochen wird es: a ist kongruent b modulo p. wenn zwei zahlen kongruent modulo p sind, bedeutet es, dass sie beim modulo nehmen mit p den gleichen Rest haben. Dies f\"uhrt wie oben beschrieben dazu, dass die Differenz von a und b durch p teilbar ist. Diese Eigenschaft wird durch folgende Umformung noch einmal 	verdeutlicht:
+		\[a \equiv b \pmod p \Leftrightarrow a=p\cdot x +r,\ \ \ b= p\cdot y +r\]
+
+		\[a-b=p(x-y)+(r-r)=p(x-y)\]
+
+		\[p|p(x-y)\]
+
  	\subsubsection{Idee}
+ 	
+ 	  	Die Idee f\"ur den Algorithmus basiert auf folgender Schlussfolgerung: \\
+ 	  	Sei $n$ eine zusammengesetzte Zahl und $p$ ein Primfaktor von $n$.\\
+ 		Gesucht sind $a, b$, sodass:
+
+  		$a \equiv b \pmod p \Leftrightarrow p|a-b$ \\
+ 		Daraus folgt $1<ggT(a-b,n) \leq  n$. \\Wenn $a\not = b$ gilt, ist $ggT(a-b,n)$ ein nichttrivialer Primfaktor von $n$.\\
+ 		\newline
+		Der interessante Teil hier ist, die Folgerung, dass wenn $a \equiv b \pmod p$ gilt, auch $1<ggT(a-b,n) \leq  n$ gilt. Dies ist sehr einfach zu erkl\"aren, wenn man die Folgerung $a \equiv b \pmod p \Leftrightarrow p|a-b$ betrachtet. $p$ ist Teiler von n und von $a-b$. Da $p$ eine Primzahl ist, ist sie gr\"o\ss e als $1$ und maximal $n$ da sie $n$ teilt.
+  
+  
  	\subsubsection{Beispiel}
  	\subsubsection{Mathematik}
  	\label{sec:pollardBeweis}
