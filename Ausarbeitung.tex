@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, titlepage,twoside]{article}
+\documentclass[12pt, a4paper, titlepage]{article}
 
 \usepackage{ngerman}
 \usepackage{lmodern}
@@ -6,6 +6,7 @@
 \usepackage{subfig}
 \usepackage{colortbl}
 \usepackage{graphicx}
+\usepackage{url} 
 
 \title{Primfaktorzerlegung und Primzahltests}
 \author{Maximilian Scholz  \\
@@ -21,15 +22,18 @@
 	\input{prim_primzahlen.tex}
 	\input{prim_eratosthenes.tex}
 	\input{prim_pollard.tex}	
-	\newpage
 	\input{prim_conclusion.tex}
-	
-	
 	\newpage
-	\begin{thebibliography}{2}
-		\bibitem[Lauritzen]{lau} \emph{Niels Lauritzen. Concrete Abstract Algebra. Reptrinted with
-			corrections 2006}
-		\bibitem[bk2boint]{bk2} \emph{blub}
+	
+
+		\begin{thebibliography}{99}
+			\bibitem{key1}Niels Lauritzen (2006)
+			\newblock Concrete Abstract Algebra\\
+			\newblock ISBN 0-521-53410-0
+
+		\bibitem{bk2}\url{www.bk2boint.dnsalias.org/int_neu/tl_files/Material\%20Informatik/erathostenes/sieb.pdf}\\ Juni 2014.
 	\end{thebibliography}
+	
+
 	
 \end{document}

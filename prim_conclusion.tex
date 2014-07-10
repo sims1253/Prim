@@ -2,3 +2,9 @@
 
 	\section{Fazit}
 	\label{conclusion}
+	Wichtig zu erw\"ahnen ist, dass der Pollard Rho Algorithmus ein probabilistischer Algorithmus ist. Er findet also nur durchschnittlich in einer bestimmten Zeit eine Primfaktorzerlegung. Je nach Wahl der Funktion $f$ und der Anfangswerte, kann man deutlich schneller oder aber gar nicht auf eine Zerlegung stoßen. Die Wahrscheinlichkeit, mit der sich ein Primfaktor findet, l\"asst sich durch die Zahl der Schritte festlegen. Die Wahrscheinlichkeit nach $\sqrt{t}\cdot \mathcal O (\sqrt[4]{n})$ Schritten einen Primfaktor zu finden ist $>1-e^{-t}$.\\
+	Wenn einfach nur gepr\"uft werde soll, ob eine gegebene Zahl eine Primzahl ist, kann mit dieser Methode nicht eindeutig gesagt werden, dass es eine Primzahl ist. Nur das Gegenteil, dass die Zahl zusammengesetzt ist, l\"asst sich durch das Finden einer Zerlegung zeigen.
+	
+	\noindent Als Alternative gibt es sogenannte deterministische Algorithmen. Diese finden immer eine L\"osung, sind im Durchschnitt aber oft deutlich langsamer als probabilistische, was den probabilistischen Algorithmen in der Praxis eine Existenzberechtigung gibt. Beispiele f\"ur schnelle deterministische Primfaktorzerlegungen sind das sogenannte Quadratisches Sieb oder das Zahlk\"orpersieb.\\
+	
+	\noindent Zuletzt sei noch erw\"ahnt, dass es 2002 drei indischen Studenten gelungen einen deterministischen Primzahltest zu entwickeln, der in polynomialer Zeit l\"auft. 
